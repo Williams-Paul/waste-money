@@ -1,12 +1,12 @@
-# waste-money
+# Waste-money
 
-## Productos
+## Product
 - Nombre
 - Precio unitario
 - Unidades
 - Fecha
 
-## Categorias
+## Categories
 - Verduras 
 - Electrodomesticos
 - Herramientas
@@ -16,3 +16,28 @@
 - Lacteos
 - Jugos
 - Galletas
+
+## Technologies
+
+### Backend
+  - Sails
+  - Nodejs
+  - Express
+    
+### Frontend
+  - Flux
+  - React
+  - Q
+  - jQuery
+
+### Theming
+  - Bootstrap
+  - Bootswatch
+  - Fonts Awesome
+
+# Hosts
+  Para poder trabajar con el dominio [agreement-app.com] (http://agreement-app.com) agregar esta linea de codigo en su archivo de hosts.
+
+  ```
+  127.0.0.1 agreement-app.com
+  ```
