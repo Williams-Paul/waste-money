@@ -1,25 +1,27 @@
 /** @jsx React.DOM */
 
-var React = require('react'),
-  Bootstrap = require('react-bootstrap'),
-  Grid = React.createFactory(Bootstrap.Grid),
-  Row = React.createFactory(Bootstrap.Row),
-  Col = React.createFactory(Bootstrap.Col),
-  PageHeader = React.createFactory(Bootstrap.PageHeader);
+var React = require('react');
+var Semantic = require('react-semantify');
+var Button = React.createFactory(Semantic.Button);
+var Grid = React.createFactory(Semantic.Grid);
+var Column = React.createFactory(Semantic.Column);
 
-var ProductForm = React.createFactory(require('./product/ProductForm.react'));
+// var ProductForm = React.createFactory(require('./product/ProductForm.react'));
 
 var App = React.createClass({
   render: function() {
    return (
-     <Grid>
-      <Row>
-        <Col lg={12} xs={12}>
-          <PageHeader>Formulario</PageHeader>
-          <ProductForm/>
-        </Col>
-      </Row>
-     </Grid>
+    <div>
+      <Button color="red" on  Click={this._onClick} oop="Deep">
+        Hello World!
+      </Button>
+      <Grid className="examplegrid">
+        <Column className="four wide"/>
+        <Column className="two wide"/>
+        <Column className="four wide"/>
+        <Column className="six wide"/>
+      </Grid>
+    </div>
    ); 
   }
 });
