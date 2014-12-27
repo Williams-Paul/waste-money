@@ -22,7 +22,8 @@ module.exports = function(grunt) {
 				cwd: './assets',
 				src: [
           'styles/**/*.!(sass|scss)',
-          'js/**/*.!(coffee)'
+          'js/**/*.!(coffee)',
+          'fonts/**/*'
         ],
 				dest: '.tmp/public'
 			}]
