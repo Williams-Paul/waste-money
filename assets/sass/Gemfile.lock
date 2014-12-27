@@ -22,6 +22,8 @@ GEM
     sass (3.4.1)
     sass-globbing (1.1.1)
       sass (>= 3.1)
+    semantic-ui-sass (0.19.3.1)
+      sass (~> 3.2)
 
 PLATFORMS
   ruby
@@ -30,3 +32,4 @@ DEPENDENCIES
   compass (>= 1.0.1)
   sass (>= 3.4)
   sass-globbing (>= 1.1.0)
+  semantic-ui-sass (>= 0.19.x)

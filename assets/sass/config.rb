@@ -60,6 +60,8 @@ add_import_path "partials"
 
 # Require any additional compass plugins available globally.
 require 'sass-globbing'
+require 'semantic-ui-sass'
+require 'compass/import-once/activate'
 
 
 
