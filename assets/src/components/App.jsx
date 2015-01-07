@@ -1,14 +1,9 @@
-/** @jsx React.DOM */
+var React = require('react')
+  , Bootstrap = require('react-bootstrap')
+  , { Grid, Row, Col, PageHeader } = Bootstrap;
 
-var React = require('react'),
-  Bootstrap = require('react-bootstrap'),
-  Grid = React.createFactory(Bootstrap.Grid),
-  Row = React.createFactory(Bootstrap.Row),
-  Col = React.createFactory(Bootstrap.Col),
-  PageHeader = React.createFactory(Bootstrap.PageHeader);
-
-var ProductForm = React.createFactory(require('./product/ProductForm.react'));
-var ProductList = React.createFactory(require('./product/ProductList.react'));
+var ProductForm = require('./product/ProductForm.jsx')
+  , ProductList = require('./product/ProductList.jsx');
 
 var ProductStore = require('../stores/ProductStore');
 var ProductActions = require('../actions/ProductActions');
