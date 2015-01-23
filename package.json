@@ -33,5 +33,13 @@
     "url": "git://github.com/joseph/agreement-app.git"
   },
   "author": "joseph",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "browserify": "^8.0.3",
+    "gulp": "^3.8.10",
+    "gulp-compass": "^2.0.3",
+    "reactify": "^0.17.1",
+    "require-dir": "^0.1.0",
+    "vinyl-source-stream": "^1.0.0"
+  }
 }
