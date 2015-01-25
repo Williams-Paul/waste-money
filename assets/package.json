@@ -36,7 +36,7 @@
   "author": "Joseph Ramos <joseph.ramos@taller.net.br>",
   "browserify": {
     "transform": [
-      "reactify",
+      ["reactify", {"es6": true}],
       "envify"
     ]
   },
