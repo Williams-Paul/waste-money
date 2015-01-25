@@ -53,8 +53,11 @@ var ProductForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
 
-    var data = jQuery('form').serializeObject();
-    console.log(data);
+    var $form = jQuery('form');
+    var data = $form.serializeObject();
+
+    ProductActions.create(data);
+    $form[0].reset();
   }
 });
 
