@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+  gutil = require('gulp-util'),
   browserify = require('browserify'),
   watchify = require('watchify'),
   reactify = require('reactify'),
