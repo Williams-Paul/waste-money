@@ -5,7 +5,7 @@
 var Promise = require('bluebird');
 var superagent = require('superagent');
 var Fluxy = require('fluxy');
-var url = '/product';
+var url = '/product/';
 
 /*
  * monkey patch superagent to make it promise-able
@@ -30,10 +30,18 @@ superagent.Request.prototype.promise = function () {
 };
 
 ProductService = {
+  one: function (id) {
+    return superagent
+      .get(_url + id)
+      .accept('json')
+      .type('json')
+      .promise();
+  },
+
   list: function() {
     return superagent
       .get(url)
-      .accepts('json')
+      .accept('json')
       .type('json')
       .promise();
   },
@@ -45,11 +53,22 @@ ProductService = {
       .send(data)
       .promise();
   },
-  update: function(id, data) {
 
+  update: function (id, agreement) {
+    return superagent
+      .post(_url + id)
+      .accept('json')
+      .type('json')
+      .send(agreement)
+      .promise();
   },
-  destroy: function(id) {
 
+  destroy: function (id) {
+    return superagent
+      .del(_url + id)
+      .accept('json')
+      .type('json')
+      .promise();
   }
 };
 
