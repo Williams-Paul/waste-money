@@ -1,5 +1,11 @@
 var gulp = require('gulp');
 
-gulp.task('watch', ['scripts:watch'], function() {
+var paths = {
+  scripts: 'assets/js/*.js',
+  css: 'assets/styles/*.css'
+}
 
+gulp.task('watch', function() {
+  gulp.watch(paths.scripts, ['copy']);
+  gulp.watch(paths.css, ['copy']);
 });

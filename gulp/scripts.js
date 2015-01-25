@@ -14,6 +14,7 @@ function buildScript(file, watch) {
   var props = watchify.args;
   props.entries = [scriptsDir + file];
   props.debug = true;
+  props.insertGlobals = false;
 
   var bundler = watch ?
     watchify(browserify(props)) :
