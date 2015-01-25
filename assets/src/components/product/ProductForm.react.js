@@ -10,8 +10,6 @@ var React = require('react'),
   Button = React.createFactory(Bootstrap.Button),
   Input = React.createFactory(Bootstrap.Input);
 
-var ProductActions = require('../../actions/ProductActions');
-
 var ProductForm = React.createClass({
   render: function() {
     return (
@@ -20,6 +18,14 @@ var ProductForm = React.createClass({
           type="text"
           label="Nombre"
           name="name"/>
+        <Input 
+          type="select"
+          label='Clasificación'
+          name="classification">
+          <option value="clasificacion">Clasificación</option>
+          <option value="fruta">Fruta</option>
+          <option value="verdura">Verdura</option>
+        </Input>
         <Input 
           type="select"
           label='Unidad'
@@ -51,9 +57,9 @@ var ProductForm = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
+    
     var data = jQuery('form').serializeObject();    
     console.log(data);
-    ProductActions.create(data);
   }
 });
 
