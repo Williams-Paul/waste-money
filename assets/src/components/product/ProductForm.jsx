@@ -2,16 +2,18 @@ var React = require('react'),
   jQuery = require('../../config/jquery-extends'),
   Bootstrap = require('react-bootstrap'),
   {Grid, Row, Col, PageHeader, Button, Input} = Bootstrap;
-  
-    var ProductForm = React.createClass({
+
+var ProductActions = require('../../actions/ProductActions');
+
+var ProductForm = React.createClass({
   render: function() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <Input 
+        <Input
           type="text"
           label="Nombre"
           name="name"/>
-        <Input 
+        <Input
           type="select"
           label='Clasificación'
           name="classification">
@@ -19,7 +21,7 @@ var React = require('react'),
           <option value="fruta">Fruta</option>
           <option value="verdura">Verdura</option>
         </Input>
-        <Input 
+        <Input
           type="select"
           label='Unidad'
           defaultValue="unidad"
@@ -28,16 +30,16 @@ var React = require('react'),
           <option value="kilo">Kilo</option>
           <option value="litro">Litro</option>
         </Input>
-        <Input 
+        <Input
           type="text"
           addonBefore="s/."
           label="Precio Unitario"
           name="unitPrice"/>
-        <Input 
+        <Input
           type="text"
           label="Cantidad"
           name="amount"/>
-        <Input 
+        <Input
           type="text"
           addonBefore="s/."
           label="Precio Total"
@@ -50,8 +52,8 @@ var React = require('react'),
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    
-    var data = jQuery('form').serializeObject();    
+
+    var data = jQuery('form').serializeObject();
     console.log(data);
   }
 });
