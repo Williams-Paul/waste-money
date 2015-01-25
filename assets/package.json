@@ -5,6 +5,7 @@
   "main": "src/app.js",
   "dependencies": {
     "flux": "^2.0.0",
+    "fluxy": "^0.4.2",
     "form-serializer": "^2.0.1",
     "immutable": "^3.4.1",
     "jquery": "^2.1.1",
@@ -36,7 +37,12 @@
   "author": "Joseph Ramos <joseph.ramos@taller.net.br>",
   "browserify": {
     "transform": [
-      ["reactify", {"es6": true}],
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ],
       "envify"
     ]
   },
