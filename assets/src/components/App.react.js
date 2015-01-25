@@ -7,7 +7,7 @@ var React = require('react'),
   Col = React.createFactory(Bootstrap.Col),
   PageHeader = React.createFactory(Bootstrap.PageHeader);
 
-var ProductForm = React.createFactory(require('./product/ProductForm.react'));
+var ProductForm = React.createFactory(require('./product/ProductForm.jsx'));
 var ProductList = React.createFactory(require('./product/ProductList.react'));
 
 var ProductStore = require('../stores/ProductStore');

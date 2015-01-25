@@ -1,16 +1,9 @@
-/** @jsx React.DOM */
-
 var React = require('react'),
   jQuery = require('../../config/jquery-extends'),
   Bootstrap = require('react-bootstrap'),
-  Grid = React.createFactory(Bootstrap.Grid),
-  Row = React.createFactory(Bootstrap.Row),
-  Col = React.createFactory(Bootstrap.Col),
-  PageHeader = React.createFactory(Bootstrap.PageHeader),
-  Button = React.createFactory(Bootstrap.Button),
-  Input = React.createFactory(Bootstrap.Input);
-
-var ProductForm = React.createClass({
+  {Grid, Row, Col, PageHeader, Button, Input} = Bootstrap;
+  
+    var ProductForm = React.createClass({
   render: function() {
     return (
       <form onSubmit={this.handleSubmit}>
