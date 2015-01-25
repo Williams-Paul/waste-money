@@ -5,6 +5,7 @@
   "main": "src/app.js",
   "dependencies": {
     "bluebird": "^2.9.1",
+    "es5-shim": "^4.0.5",
     "flux": "^2.0.0",
     "fluxy": "^0.4.2",
     "form-serializer": "^2.0.1",
