@@ -1,15 +1,16 @@
 /**
  * ProductConstant
- */ 
+ */
 
-var keyMirror = require('keymirror');
+var Fluxy = require("fluxy");
 
-module.exports = keyMirror({
-  'PRODUCT_CREATE': null,
-  'PRODUCT_CREATE_SUCCESS': null,
-  'PRODUCT_CREATE_FAIL': null,
-  
-  'PRODUCT_LOAD': null,
-  'PRODUCT_LOAD_SUCCESS': null,
-  'PRODUCT_LOAD_FAIL': null
+var ProductConstant = Fluxy.createConstants({
+  serviceMessages: [
+    'PRODUCT_LIST',
+    'PRODUCT_CREATE',
+    'PRODUCT_UPDATE',
+    'PRODUCT_DESTROY'
+  ]
 });
+
+module.exports = ProductConstant;

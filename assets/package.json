@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "dependencies": {
+    "bluebird": "^2.9.1",
     "flux": "^2.0.0",
     "fluxy": "^0.4.2",
     "form-serializer": "^2.0.1",

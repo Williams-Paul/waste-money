@@ -2,45 +2,55 @@
  * ProductService
  */
 
-var request = require('superagent');
-require('q-superagent')(request);
+var Promise = require('bluebird');
+var superagent = require('superagent');
+var Fluxy = require('fluxy');
+var url = '/product';
 
-var _url = '/product/';
+/*
+ * monkey patch superagent to make it promise-able
+ */
+superagent.Request.prototype.promise = function () {
+  var token = Promise.defer();
+  this.end(function (err, res) {
+    if (err) { return token.reject(err); }
+    if (res.status !== 200) {
+      if (res.body && res.body.error) {
+        token.reject(res.body);
+      }
+      else {
+        token.reject(res.error);
+      }
+    }
+    else {
+      token.resolve(res.body);
+    }
+  });
+  return token.promise;
+};
 
 ProductService = {
-  create: function(data, success, failure) {
-    request.post(_url).send(data).q(function(res) {
-      var data = res.body;
-      success(data);
-    }).fail(function(err) {
-      failure(err);
-    });
+  list: function() {
+    return superagent
+      .get(url)
+      .accepts('json')
+      .type('json')
+      .promise();
   },
-  
-  update: function() {
-    
+  create: function(data) {
+    return superagent
+      .post(url)
+      .accept('json')
+      .type('json')
+      .send(data)
+      .promise();
   },
-  
-  completeAll: function() {
-    
+  update: function(id, data) {
+
   },
-  
-  destroy: function() {
-    
-  },
-  
-  destroyCompleted: function() {
-    
-  },
-  
-  load: function(success, failure) {
-    request.get(_url).q(function(res) {
-      var data = res.body;
-      success(data);
-    }).fail(function(error) {
-      failure(error);
-    });
+  destroy: function(id) {
+
   }
-}
+};
 
 module.exports = ProductService;

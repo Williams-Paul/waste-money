@@ -1,44 +1,41 @@
-/** @jsx React.DOM */
-
 var React = require('react'),
   Bootstrap = require('react-bootstrap'),
-  Grid = React.createFactory(Bootstrap.Grid),
-  Row = React.createFactory(Bootstrap.Row),
-  Col = React.createFactory(Bootstrap.Col),
-  PageHeader = React.createFactory(Bootstrap.PageHeader);
+  {Grid, Row, Col, PageHeader} = Bootstrap;
 
-var ProductForm = React.createFactory(require('./product/ProductForm.jsx'));
-var ProductList = React.createFactory(require('./product/ProductList.react'));
+var ProductForm = require('./product/ProductForm.jsx');
+var ProductList = require('./product/ProductList.jsx');
 
 var ProductStore = require('../stores/ProductStore');
 var ProductActions = require('../actions/ProductActions');
 
-
 /**
  * Retrive the current PRODUCT
- */ 
+ */
 function getProductState() {
   return {
-    allProducts: ProductStore.getProducts()
+    allProducts: ProductStore.getAsJS('products')
   }
-}; 
+};
 
 var App = React.createClass({
-  
+
   getInitialState: function() {
     return getProductState();
   },
-  
+
   componentDidMount: function() {
-    ProductActions.load();
-    
-    ProductStore.addChangeListener(this._onChange);
+    ProductActions.list();
+    ProductStore.addWatch(this._onChange);
   },
-  
+
   componentWillUnmount: function() {
-    ProductStore.removeChangeListener(this._onChange);
+    ProductStore.removeWatch(this._onChange);
   },
-  
+
+  shouldComponentUpdate: function (nextProps, nextState) {
+    return !ProductStore.$equals(this.state.allProducts, nextState.allProducts);
+  },
+
   render: function() {
    return (
      <Grid>
@@ -49,12 +46,12 @@ var App = React.createClass({
         </Col>
         <Col lg={6} xs={6}>
           <PageHeader>Lista de compras</PageHeader>
-          <ProductList 
+          <ProductList
             allProducts={this.state.allProducts}/>
         </Col>
       </Row>
      </Grid>
-   ); 
+   );
   },
   _onChange: function() {
     this.setState(getProductState());
