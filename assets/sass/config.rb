@@ -60,7 +60,7 @@ add_import_path "partials"
 
 # Require any additional compass plugins available globally.
 require 'sass-globbing'
-
+require 'font-awesome-sass'
 
 
 # =================================
