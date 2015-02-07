@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 				src: [
           'styles/**/*.css',
           'js/**/*.js',
-          'fonts/*'
+          'fonts/**/*'
         ],
 				dest: '.tmp/public'
 			}]
