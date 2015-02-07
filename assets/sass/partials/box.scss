@@ -1,0 +1,101 @@
+.box {
+  padding: 15px;
+  position: relative;
+  border: 1px solid #ccc;
+  color: white;
+  margin-bottom: 10px;
+  overflow: hidden;
+
+  .delete {
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 999;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+      cursor: pointer;
+    }
+
+    &:active {
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+  }
+
+  i {
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    position: absolute;
+    font-size: 120px;
+    top: 5px;
+    right: 0;
+    color: rgba(255,255,255, 0.5);
+  }
+
+  .title {
+    font-size: 2em;
+    display: block;
+    font-weight: bold;
+  }
+
+  .prefix {
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  .sub-title {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .phrase {
+    display: block;
+  }
+}
+
+.box-red {
+  padding: 15px;
+  position: relative;
+  border: 1px solid #ccc;
+  color: white;
+  margin-bottom: 10px;
+  overflow: hidden;
+
+  &.red {
+    background-color: #red;
+  }
+
+  i {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    font-size: 100px;
+    bottom: 0px;
+    right: 0px;
+    color: rgba(255,255,255, 0.5);
+  }
+
+  .main-title {
+    font-size: 28px;
+    display: block;
+    font-weight: bold;
+  }
+
+  .prefix {
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .phrase {
+    display: block;
+  }
+}

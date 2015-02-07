@@ -20,7 +20,7 @@ var ClassificationList = React.createClass({
     }
 
     return (
-      <ul id="classification-list">{classifications}</ul>
+      <div id="classification-list" className="list-unstyled">{classifications}</div>
     );
   }
 });
