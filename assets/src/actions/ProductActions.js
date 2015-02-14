@@ -15,6 +15,10 @@ var ProductActions = Fluxy.createActions({
 
     create: [ProductConstants.PRODUCT_CREATE, function(data) {
       return ProductService.create(data); // return promise
+    }],
+
+    destroy: [ProductConstants.PRODUCT_DESTROY, function (id) {
+      return ProductService.destroy(id);
     }]
   }
 });

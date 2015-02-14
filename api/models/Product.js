@@ -22,6 +22,9 @@ module.exports = {
     },
     total: {
       type: 'float'
+    },
+    classification: {
+      model: 'classification'
     }
   }
 };

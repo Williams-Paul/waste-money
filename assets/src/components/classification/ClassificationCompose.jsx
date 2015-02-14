@@ -27,9 +27,9 @@ var ClassificationCompose = React.createClass({
     ClassificationStore.removeWatch(this._onChange);
   },
 
-  shouldComponentUpdate: function (nextProps, nextState) {
-    return !ClassificationStore.$equals(this.state.allClassifications, nextState.allClassifications);
-  },
+  // shouldComponentUpdate: function (nextProps, nextState) {
+    // return !ClassificationStore.equals(this.state.allClassifications, nextState.allClassifications);
+  // },
 
   render: function () {
     return (
@@ -39,7 +39,6 @@ var ClassificationCompose = React.createClass({
           <ClassificationForm/>
         </Col>
         <Col lg={6}>
-          <PageHeader>Clasificaciones</PageHeader>
           <ClassificationList allClassifications={this.state.allClassifications}/>
         </Col>
       </Row>

@@ -21,7 +21,7 @@ var ProductList = React.createClass({
     }
 
     return (
-      <ul id="product-list">{products}</ul>
+      <div id="product-list">{products}</div>
     );
   }
 });

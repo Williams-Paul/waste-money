@@ -6,6 +6,16 @@
  */
 
 module.exports = {
-	
+  getStatistics: function(req, res) {
+
+    Classification.find().then(function(classifications) {
+
+      // Product.find().exec(function(err, products) {});
+      return res.json({
+        statistics: classifications
+      });
+    });
+
+  }
 };
 

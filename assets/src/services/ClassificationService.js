@@ -32,7 +32,7 @@ superagent.Request.prototype.promise = function () {
 ClassificationService = {
   one: function (id) {
     return superagent
-      .get(_url + id)
+      .get(url + id)
       .accept('json')
       .type('json')
       .promise();
@@ -56,7 +56,7 @@ ClassificationService = {
 
   update: function (id, agreement) {
     return superagent
-      .post(_url + id)
+      .post(url + id)
       .accept('json')
       .type('json')
       .send(agreement)
@@ -65,7 +65,7 @@ ClassificationService = {
 
   destroy: function (id) {
     return superagent
-      .del(_url + id)
+      .del(url + id)
       .accept('json')
       .type('json')
       .promise();

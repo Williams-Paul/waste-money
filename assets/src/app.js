@@ -9,6 +9,9 @@ var React = require('react');
 var Router = require('react-router');
 var routes = require('./components/Routes.jsx');
 
+ImmutableProxy = require('fluxy/lib/collections/ImmutableProxy');
+Fluxy.setCollectionProxyType(ImmutableProxy);
+
 Fluxy.bootstrap('__fluxy__');
 
 Router.run(routes, function(Handler) {

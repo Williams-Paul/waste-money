@@ -1,17 +1,18 @@
 var React = require('react'),
-  Bootstrap = require('react-bootstrap'),
   {
-    Grid,
     Row,
     Col,
     PageHeader
-  } = Bootstrap;
+  } = require('react-bootstrap');
 
 var ProductForm = require('./ProductForm.jsx');
 var ProductList = require('./ProductList.jsx');
 
-var ProductStore = require('../../stores/ProductStore');
-var ProductActions = require('../../actions/ProductActions');
+var ProductStore = require('../../stores/ProductStore'),
+  ClassificationStore = require('../../stores/ClassificationStore');
+
+var ProductActions = require('../../actions/ProductActions'),
+  ClassificationActions = require('../../actions/ClassificationActions');
 
 /**
  * Retrive the current PRODUCT
@@ -37,21 +38,22 @@ var ProductCompass = React.createClass({
     ProductStore.removeWatch(this._onChange);
   },
 
-  shouldComponentUpdate: function (nextProps, nextState) {
-    return !ProductStore.$equals(this.state.allProducts, nextState.allProducts);
-  },
-
   render: function () {
     return (
       <Row>
-        <Col lg={6} xs={6}>
+        <Col lg={4} xs={4}>
           <PageHeader>Formulario</PageHeader>
-          <ProductForm/>
+          <ProductForm id="product-form"/>
         </Col>
-        <Col lg={6} xs={6}>
-          <PageHeader>Lista de compras</PageHeader>
+
+        <Col lg={4} xs={4}>
+          <PageHeader>Compras</PageHeader>
           <ProductList
             allProducts={this.state.allProducts}/>
+        </Col>
+
+        <Col lg={4} xs={4}>
+          <PageHeader>Estadísticas</PageHeader>
         </Col>
       </Row>
     );

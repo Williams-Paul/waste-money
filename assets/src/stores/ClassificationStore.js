@@ -27,7 +27,12 @@ var ClassificationStore = Fluxy.createStore({
     }],
 
     [ClassificationConstants.CLASSIFICATION_CREATE_COMPLETED, function(classification) {
-      this.set(['classifications', classification.id], $.js_to_clj(classification));
+      this.set(['classifications', classification.id], classification);
+    }],
+
+    [ClassificationConstants.CLASSIFICATION_DESTROY_COMPLETED, function(classification) {
+      var classifications = this.get('classifications').remove(classification.id);
+      this.set('classifications', classifications);
     }]
   ]
 });

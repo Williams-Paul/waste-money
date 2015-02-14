@@ -14,6 +14,10 @@ var ClassificationForm = React.createClass({
           label="Nombre"
           name="name"/>
         <Input
+          type="text"
+          label="Descripción"
+          name="description"/>
+        <Input
           type='submit'
           value='Submit button'/>
       </form>

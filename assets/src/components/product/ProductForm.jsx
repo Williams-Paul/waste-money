@@ -1,26 +1,58 @@
 var React = require('react'),
+  ReactPropTypes = React.PropTypes,
   jQuery = require('../../config/jquery-extends'),
   Bootstrap = require('react-bootstrap'),
   {Grid, Row, Col, PageHeader, Button, Input} = Bootstrap;
 
-var ProductActions = require('../../actions/ProductActions');
+var ClassificationActions = require('../../actions/ClassificationActions'),
+  ProductActions = require('../../actions/ProductActions'),
+  ClassificationStore = require('../../stores/ClassificationStore');
+
+var DynamicSelect = require('./DynamicSelect.jsx');
+
+function getProductFormState() {
+  return {
+    classifications: ClassificationStore.getAsJS('classifications'),
+    amount: '0',
+    price: '0.00'
+  };
+}
 
 var ProductForm = React.createClass({
+
+  porpTypes: {
+    id: ReactPropTypes.string.isRequired
+  },
+
+  getInitialState: function () {
+    return getProductFormState();
+  },
+
+  componentDidMount: function() {
+    ClassificationActions.list();
+    ClassificationStore.addWatch(this._onChange);
+  },
+
+  componentWillUnmount: function() {
+    ClassificationStore.removeWatch(this._onChange);
+  },
+
   render: function() {
+
+    var {classifications, ...otherStates}  = this.state;
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={this.handleSubmit}
+        {...this.props}>
         <Input
           type="text"
           label="Nombre"
           name="name"/>
-        <Input
-          type="select"
+        <DynamicSelect
           label='Clasificación'
-          name="classification">
-          <option value="clasificacion">Clasificación</option>
-          <option value="fruta">Fruta</option>
-          <option value="verdura">Verdura</option>
-        </Input>
+          name="classification"
+          items={classifications}/>
         <Input
           type="select"
           label='Unidad'
@@ -30,15 +62,31 @@ var ProductForm = React.createClass({
           <option value="kilo">Kilo</option>
           <option value="litro">Litro</option>
         </Input>
-        <Input
-          type="text"
-          addonBefore="s/."
-          label="Precio Unitario"
-          name="unitPrice"/>
-        <Input
-          type="text"
-          label="Cantidad"
-          name="amount"/>
+
+        <Row>
+          <Col xs={8}>
+            <Input
+              type="text"
+              addonBefore="s/."
+              label="Precio Unitario"
+              name="unitPrice"
+              onBlur={this._getCost}
+              onChange={this._onChangePrice}
+              onKeyDown={this._onKeyDown}
+              defaultValue={this.state.price}/>
+          </Col>
+          <Col xs={4}>
+            <Input
+              type="text"
+              label="Cantidad"
+              name="amount"
+              onBlur={this._getCost}
+              onChange={this._onChangeAmount}
+              onKeyDown={this._onKeyDown}
+              defaultValue={this.state.amount}/>
+          </Col>
+        </Row>
+
         <Input
           type="text"
           addonBefore="s/."
@@ -58,7 +106,42 @@ var ProductForm = React.createClass({
 
     ProductActions.create(data);
     $form[0].reset();
+  },
+
+  _onChange: function () {
+    this.setState(getProductFormState());
+  },
+
+  _onChangePrice: function (event) {
+    this.setState({
+      price: event.target.value
+    });
+
+    console.log(this.state.price);
+  },
+
+  _onChangeAmount: function (event) {
+    this.setState({
+      amount: event.target.value
+    });
+
+    console.log(this.state.amount);
+  },
+
+  _onKeyDown: function () {
+    console.log("key-down: ", this.state);
+  },
+
+  _getCost: function () {
+
+    var $form = document.getElementById(this.props.id);
+    var amount = parseFloat(this.state.amount);
+    var price = parseFloat(this.state.price);
+    var totalPrice = amount * price;
+
+    $form.querySelector('[name="price"]').value = totalPrice.toFixed(2);
   }
+
 });
 
 module.exports = ProductForm;

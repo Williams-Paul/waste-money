@@ -1,7 +1,7 @@
 var React = require('react');
 var ClassificationActions = require('../../actions/ClassificationActions');
 
-var ClassificationItem = React.createClass({
+var StatisticItem = React.createClass({
   render: function() {
     var classification = this.props.classification;
     var iconClass = "fa fa-star-o";
@@ -14,9 +14,14 @@ var ClassificationItem = React.createClass({
           onClick={this._onDestroyClick}></span>
 
         <i className={iconClass}></i>
+
+
         <span className="title">
-          {classification.name}
+          <span class="prefix">s/.</span>
+          130.00
         </span>
+
+
         <span className="phrase">{classification.description}</span>
       </div>
     );
@@ -27,4 +32,4 @@ var ClassificationItem = React.createClass({
   }
 });
 
-module.exports = ClassificationItem;
+module.exports = StatisticItem;

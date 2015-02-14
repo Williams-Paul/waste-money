@@ -27,7 +27,12 @@ var ProductStore = Fluxy.createStore({
     }],
 
     [ProductConstants.PRODUCT_CREATE_COMPLETED, function(product) {
-      this.set(['products', product.id], $.js_to_clj(product));
+      this.set(['products', product.id], product);
+    }],
+
+    [ProductConstants.PRODUCT_DESTROY_COMPLETED, function(product) {
+      var products = this.get('products').remove(product.id);
+      this.set('products', products);
     }]
   ]
 });

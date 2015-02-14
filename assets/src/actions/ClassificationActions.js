@@ -13,6 +13,10 @@ var ClassificationActions = Fluxy.createActions({
       return ClassificationService.list(); // return promise
     }],
 
+    destroy: [ClassificationConstants.CLASSIFICATION_DESTROY, function (id) {
+      return ClassificationService.destroy(id);
+    }],
+
     create: [ClassificationConstants.CLASSIFICATION_CREATE, function(data) {
       return ClassificationService.create(data); // return promise
     }]

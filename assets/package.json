@@ -6,7 +6,7 @@
   "dependencies": {
     "bluebird": "^2.9.1",
     "es5-shim": "^4.0.5",
-    "fluxy": "^0.4.2",
+    "fluxy": "jmreidy/fluxy#immutable_support",
     "form-serializer": "^2.0.1",
     "jquery": "^2.1.1",
     "object-assign": "^1.0.0",
