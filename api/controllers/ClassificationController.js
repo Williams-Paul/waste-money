@@ -1,4 +1,3 @@
-
 /**
  * ClassificationController
  *
@@ -7,7 +6,7 @@
  */
 
 var Promise = require('bluebird'),
-    _ = require('lodash');
+  _ = require('lodash');
 
 module.exports = {
   getStatistics: function(req, res) {
@@ -28,15 +27,14 @@ module.exports = {
       Promise.settle(promises).then(function(results) {
 
         results.forEach(function(result, index) {
-          if(result.isFulfilled()) {
+          if (result.isFulfilled()) {
             var result = result.value();
 
-            if(result.length > 0) {
+            if (result.length > 0) {
 
               // Add products to statistics
               statistics[index].products = statistics[index].id == result[0].classification ?
-                result :
-                [];
+                result : [];
             }
           }
         });
