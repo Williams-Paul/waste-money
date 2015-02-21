@@ -16,7 +16,11 @@ var ClassificationList = React.createClass({
     var classifications = [];
 
     for (var key in allClassifications) {
-      classifications.push(<ClassificationItem key={key} classification={allClassifications[key]} />);
+      classifications.push(
+        <div className="col-xs-6">
+          <ClassificationItem key={key} classification={allClassifications[key]}/>
+        </div>
+      );
     }
 
     return (

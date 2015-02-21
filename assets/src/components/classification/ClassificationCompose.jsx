@@ -34,12 +34,14 @@ var ClassificationCompose = React.createClass({
   render: function () {
     return (
       <Row>
-        <Col lg={6}>
+        <Col lg={3}>
           <PageHeader>Clasificaciones</PageHeader>
           <ClassificationForm/>
         </Col>
-        <Col lg={6}>
-          <ClassificationList allClassifications={this.state.allClassifications}/>
+        <Col lg={9}>
+          <Row>
+            <ClassificationList allClassifications={this.state.allClassifications}/>
+          </Row>
         </Col>
       </Row>
     );
