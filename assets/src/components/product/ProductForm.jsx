@@ -8,7 +8,8 @@ var ClassificationActions = require('../../actions/ClassificationActions'),
   ProductActions = require('../../actions/ProductActions'),
   ClassificationStore = require('../../stores/ClassificationStore');
 
-var DynamicSelect = require('./DynamicSelect.jsx');
+var DynamicSelect = require('./DynamicSelect.jsx'),
+  DynamicDate = require('./DynamicDate.jsx');
 
 function getProductFormState() {
   return {
@@ -49,10 +50,12 @@ var ProductForm = React.createClass({
           type="text"
           label="Nombre"
           name="name"/>
+
         <DynamicSelect
           label='Clasificación'
           name="classification"
           items={classifications}/>
+
         <Input
           type="select"
           label='Unidad'
@@ -92,9 +95,12 @@ var ProductForm = React.createClass({
           addonBefore="s/."
           label="Precio Total"
           name="price"/>
+
+        <DynamicDate/>
+
         <Input
           type='submit'
-          value='Submit button'/>
+          value='Guardar'/>
       </form>
     );
   },

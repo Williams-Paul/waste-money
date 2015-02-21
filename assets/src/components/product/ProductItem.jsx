@@ -6,13 +6,13 @@ var ProductItem = React.createClass({
     var product = this.props.product;
 
     return (
-      <div className="box">
+      <li className="box-sm">
         <span
           className="glyphicon glyphicon-remove delete"
           aria-hidden="true"
           onClick={this._onDestroyClick}></span>
-          {product.name}
-      </div>
+        <i className="fa fa-angle-right"></i> {product.name}
+      </li>
     );
   },
 

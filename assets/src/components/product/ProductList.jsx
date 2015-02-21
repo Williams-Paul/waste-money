@@ -21,7 +21,10 @@ var ProductList = React.createClass({
     }
 
     return (
-      <div id="product-list">{products}</div>
+      <div>
+        <h5 className="page-header"><i className="fa fa-calendar"></i> 30/12/15</h5>
+        <ul id="product-list" className="list-unstyled">{products}</ul>
+      </div>
     );
   }
 });

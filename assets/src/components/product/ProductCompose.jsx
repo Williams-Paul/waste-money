@@ -7,6 +7,7 @@ var React = require('react'),
 
 var ProductForm = require('./ProductForm.jsx');
 var ProductList = require('./ProductList.jsx');
+var StatisticCompose = require('../statistic/StatisticCompose.jsx');
 
 var ProductStore = require('../../stores/ProductStore'),
   ClassificationStore = require('../../stores/ClassificationStore');
@@ -41,19 +42,22 @@ var ProductCompass = React.createClass({
   render: function () {
     return (
       <Row>
-        <Col lg={4} xs={4}>
+        <Col lg={3} xs={3}>
           <PageHeader>Formulario</PageHeader>
           <ProductForm id="product-form"/>
         </Col>
 
-        <Col lg={4} xs={4}>
+        <Col lg={3} xs={3}>
           <PageHeader>Compras</PageHeader>
           <ProductList
             allProducts={this.state.allProducts}/>
         </Col>
 
-        <Col lg={4} xs={4}>
+        <Col lg={6} xs={6}>
           <PageHeader>Estadísticas</PageHeader>
+          <Row>
+            <StatisticCompose/>
+          </Row>
         </Col>
       </Row>
     );
