@@ -46,6 +46,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /statistics': 'ClassificationController.getStatistics'
+  'get /statistics': 'ClassificationController.getStatistics',
 
+  'get /product': 'ProductController.getProducts'
 };
