@@ -51,9 +51,7 @@ module.exports = {
           });
         });
 
-        return res.json({
-          statistics: statistics
-        });
+        return res.json(statistics);
 
       });
     });
