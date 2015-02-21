@@ -25,7 +25,7 @@ var App = React.createClass({
    return (
      <Grid>
       <Row>
-        <Navbar>
+        <Navbar fixedTop={true} fluid={false}>
           <Nav>
             <NavItemLink to="initial">Inicio</NavItemLink>
             <NavItemLink to="classification">Clasificaciones</NavItemLink>
