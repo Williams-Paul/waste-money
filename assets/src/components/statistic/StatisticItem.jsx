@@ -1,35 +1,25 @@
 var React = require('react');
-var ClassificationActions = require('../../actions/ClassificationActions');
+var StatisticActions = require('../../actions/Statistic');
 
 var StatisticItem = React.createClass({
   render: function() {
-    var classification = this.props.classification;
+    var data = this.props.data;
     var iconClass = "fa fa-star-o";
 
     return (
-      <div className="box">
-        <span
-          className="glyphicon glyphicon-remove delete"
-          aria-hidden="true"
-          onClick={this._onDestroyClick}></span>
+      <div className="col-xs-6">
+        <div className="box">
+          <i className={iconClass}></i>
 
-        <i className={iconClass}></i>
+          <span className="title">
+            <span className="prefix">s/.</span> {data.total}
+          </span>
 
-
-        <span className="title">
-          <span class="prefix">s/.</span>
-          130.00
-        </span>
-
-
-        <span className="phrase">{classification.description}</span>
+          <div className="sub-title">{data.name}</div>
+        </div>
       </div>
     );
   },
-
-  _onDestroyClick: function () {
-    ClassificationActions.destroy(this.props.classification.id);
-  }
 });
 
 module.exports = StatisticItem;
