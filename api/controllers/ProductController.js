@@ -11,8 +11,6 @@ module.exports = {
 
   getProducts: function (req, res) {
 
-    console.log(req.query);
-
     var groupByDate = {};
 
     Product.find().then(function(products) {

@@ -17,7 +17,6 @@ var StatisticCompose = React.createClass({
   },
 
   componentDidMount: function() {
-    // StatisticActions.list();
     StatisticStore.addWatch(this._onChange);
     ProductStore.addWatch(this._onChangeProduct);
   },
