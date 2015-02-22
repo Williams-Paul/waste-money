@@ -1,0 +1,72 @@
+.box-sm {
+  padding: 5px 5px;
+  position: relative;
+  i {
+    color: #aaa;
+    margin-right: 5px;
+  }
+
+  .delete {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+  }
+}
+
+.box {
+  vertical-align: middle;
+  padding: 10px 15px;
+  position: relative;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  overflow: hidden;
+
+  i {
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    position: absolute;
+    font-size: 120px;
+    top: 5px;
+    right: 0;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  .delete {
+    position: absolute;
+    top: 8px;
+    right: 6px;
+  }
+}
+
+.delete {
+  z-index: 999;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    cursor: pointer;
+  }
+}
+
+.title {
+  font-size: 2em;
+  display: block;
+  font-weight: bold;
+}
+
+.prefix {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.sub-title {
+  font-size: 1.3em;
+}
+
+.phrase {
+  display: block;
+}
+

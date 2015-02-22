@@ -1,8 +1,19 @@
-/** @jsx React.DOM */
+/**
+ * app @file
+ */
 
+require('es5-shim');
+
+var Fluxy = require('fluxy');
 var React = require('react');
-var App = require('./components/App.react');
+var Router = require('react-router');
+var routes = require('./components/Routes.jsx');
 
-React.render(
-  React.createElement(App), document.getElementById('app')
-);
+ImmutableProxy = require('fluxy/lib/collections/ImmutableProxy');
+Fluxy.setCollectionProxyType(ImmutableProxy);
+
+Fluxy.bootstrap('__fluxy__');
+
+Router.run(routes, function(Handler) {
+  React.render(<Handler/>, document.body);
+});
