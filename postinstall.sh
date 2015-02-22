@@ -5,9 +5,6 @@ CDW=$(pwd)
 cd "$CDW/assets"
 npm install
 
-# Browserify bundle
-npm run build
-
 # Bower Sependencies
 bower install
 
