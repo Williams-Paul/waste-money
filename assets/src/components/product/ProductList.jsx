@@ -4,27 +4,22 @@ var ProductItem = require('./ProductItem.jsx');
 
 var ProductList = React.createClass({
   propTypes: {
-    allProducts: ReactPropTypes.object.isRequired
+    items: ReactPropTypes.array.isRequired
   },
   render: function() {
+    var elementList = [];
+    var items = this.props.items;
 
+    if (!items) return null;
 
-    if (this.props.allProducts && Object.keys(this.props.allProducts).length < 1) {
-      return null;
-    }
-
-    var allProducts = this.props.allProducts;
-    var products = [];
-
-    for (var key in allProducts) {
-      products.push(<ProductItem key={key} product={allProducts[key]} />);
-    }
+    items.forEach(function(item) {
+      elementList.push(<ProductItem key={item.id} product={item} />);
+    });
 
     return (
-      <div>
-        <h5 className="page-header"><i className="fa fa-calendar"></i> 30/12/15</h5>
-        <ul id="product-list" className="list-unstyled">{products}</ul>
-      </div>
+      <ul id="product-list" className="list-unstyled">
+        {elementList}
+      </ul>
     );
   }
 });

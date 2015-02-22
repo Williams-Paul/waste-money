@@ -6,39 +6,10 @@ var React = require('react'),
   } = require('react-bootstrap');
 
 var ProductForm = require('./ProductForm.jsx');
-var ProductList = require('./ProductList.jsx');
+var Product = require('./Product.jsx');
 var StatisticCompose = require('../statistic/StatisticCompose.jsx');
 
-var ProductStore = require('../../stores/ProductStore'),
-  ClassificationStore = require('../../stores/ClassificationStore');
-
-var ProductActions = require('../../actions/ProductActions'),
-  ClassificationActions = require('../../actions/ClassificationActions');
-
-/**
- * Retrive the current PRODUCT
- */
-function getProductState() {
-  return {
-    allProducts: ProductStore.getAsJS('products')
-  }
-};
-
 var ProductCompass = React.createClass({
-
-  getInitialState: function() {
-    return getProductState();
-  },
-
-  componentDidMount: function() {
-    ProductActions.list();
-    ProductStore.addWatch(this._onChange);
-  },
-
-  componentWillUnmount: function() {
-    ProductStore.removeWatch(this._onChange);
-  },
-
   render: function () {
     return (
       <Row>
@@ -49,8 +20,7 @@ var ProductCompass = React.createClass({
 
         <Col lg={3} xs={3}>
           <PageHeader>Compras</PageHeader>
-          <ProductList
-            allProducts={this.state.allProducts}/>
+          <Product/>
         </Col>
 
         <Col lg={6} xs={6}>
@@ -61,10 +31,6 @@ var ProductCompass = React.createClass({
         </Col>
       </Row>
     );
-  },
-
-  _onChange: function() {
-    this.setState(getProductState());
   }
 });
 

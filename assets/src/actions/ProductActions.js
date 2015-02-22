@@ -17,8 +17,14 @@ var ProductActions = Fluxy.createActions({
       return ProductService.create(data); // return promise
     }],
 
-    destroy: [ProductConstants.PRODUCT_DESTROY, function (id) {
+    destroy: [ProductConstants.PRODUCT_DESTROY, function(id) {
       return ProductService.destroy(id);
+    }],
+
+    groupList: [ProductConstants.PRODUCT_GROUP, function() {
+      return ProductService.list({
+        groupBy: 'createdAt'
+      });
     }]
   }
 });
